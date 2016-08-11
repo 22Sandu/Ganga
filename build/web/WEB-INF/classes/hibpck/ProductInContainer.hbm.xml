@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 17, 2013 4:56:37 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="hibpck.ProductInContainer" table="product_in_container" catalog="ganga">
+        <id name="idpc" type="int">
+            <column name="idpc" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="container" class="hibpck.Container" fetch="select">
+            <column name="container_idcontainer" not-null="true" />
+        </many-to-one>
+        <many-to-one name="systemStatus" class="hibpck.SystemStatus" fetch="select">
+            <column name="system_status_idsystem_status" not-null="true" />
+        </many-to-one>
+        <many-to-one name="products" class="hibpck.Products" fetch="select">
+            <column name="products_idproducts" not-null="true" />
+        </many-to-one>
+        <property name="qty" type="java.lang.Double">
+            <column name="qty" precision="22" scale="0" />
+        </property>
+        <property name="amount" type="java.lang.Double">
+            <column name="amount" precision="22" scale="0" />
+        </property>
+        <property name="addedDate" type="date">
+            <column name="added_date" length="10" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 17, 2013 4:56:37 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="hibpck.SystemStatus" table="system_status" catalog="ganga">
+        <id name="idsystemStatus" type="java.lang.Integer">
+            <column name="idsystem_status" />
+            <generator class="identity" />
+        </id>
+        <property name="statusName" type="string">
+            <column name="status_name" />
+        </property>
+        <set name="users" inverse="true">
+            <key>
+                <column name="system_status_idsystem_status" not-null="true" />
+            </key>
+            <one-to-many class="hibpck.User" />
+        </set>
+        <set name="productInContainers" inverse="true">
+            <key>
+                <column name="system_status_idsystem_status" not-null="true" />
+            </key>
+            <one-to-many class="hibpck.ProductInContainer" />
+        </set>
+        <set name="userLogins" inverse="true">
+            <key>
+                <column name="system_status_idsystem_status" not-null="true" />
+            </key>
+            <one-to-many class="hibpck.UserLogin" />
+        </set>
+    </class>
+</hibernate-mapping>

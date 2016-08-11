@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/Ganga?zeroDateTimeBehavior=convertToNull</property>
+    <property name="hibernate.connection.username">root</property>
+    <property name="hibernate.connection.password">123</property>
+    <mapping resource="hibpck/UserType.hbm.xml"/>
+    <mapping resource="hibpck/Container.hbm.xml"/>
+    <mapping resource="hibpck/Products.hbm.xml"/>
+    <mapping resource="hibpck/Image.hbm.xml"/>
+    <mapping resource="hibpck/UserLogin.hbm.xml"/>
+    <mapping resource="hibpck/SessionActivities.hbm.xml"/>
+    <mapping resource="hibpck/LoginSession.hbm.xml"/>
+    <mapping resource="hibpck/ContainerType.hbm.xml"/>
+    <mapping resource="hibpck/ProductType.hbm.xml"/>
+    <mapping resource="hibpck/ProductInContainer.hbm.xml"/>
+    <mapping resource="hibpck/SystemStatus.hbm.xml"/>
+    <mapping resource="hibpck/User.hbm.xml"/>
+  </session-factory>
+</hibernate-configuration>

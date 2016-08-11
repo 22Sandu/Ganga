@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 17, 2013 4:56:37 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="hibpck.User" table="user" catalog="ganga">
+        <id name="iduser" type="java.lang.Integer">
+            <column name="iduser" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="systemStatus" class="hibpck.SystemStatus" fetch="select">
+            <column name="system_status_idsystem_status" not-null="true" />
+        </many-to-one>
+        <many-to-one name="userType" class="hibpck.UserType" fetch="select">
+            <column name="user_type_iduser_type" not-null="true" />
+        </many-to-one>
+        <property name="firstName" type="string">
+            <column name="first_name" length="200" />
+        </property>
+        <property name="lastName" type="string">
+            <column name="last_name" length="200" />
+        </property>
+        <property name="address" type="string">
+            <column name="address" />
+        </property>
+        <property name="city" type="string">
+            <column name="city" length="200" />
+        </property>
+        <property name="state" type="string">
+            <column name="state" length="200" />
+        </property>
+        <property name="pinCode" type="string">
+            <column name="pin_code" length="10" />
+        </property>
+        <property name="country" type="string">
+            <column name="country" length="200" />
+        </property>
+        <property name="tel" type="string">
+            <column name="tel" length="15" />
+        </property>
+        <set name="userLogins" inverse="true">
+            <key>
+                <column name="user_iduser" not-null="true" />
+            </key>
+            <one-to-many class="hibpck.UserLogin" />
+        </set>
+        <set name="containers" inverse="true">
+            <key>
+                <column name="user_iduser" not-null="true" />
+            </key>
+            <one-to-many class="hibpck.Container" />
+        </set>
+        <set name="productses" inverse="true">
+            <key>
+                <column name="user_iduser" not-null="true" />
+            </key>
+            <one-to-many class="hibpck.Products" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 17, 2013 4:56:37 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="hibpck.UserLogin" table="user_login" catalog="ganga">
+        <id name="iduserLogin" type="java.lang.Integer">
+            <column name="iduser_login" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="systemStatus" class="hibpck.SystemStatus" fetch="select">
+            <column name="system_status_idsystem_status" not-null="true" />
+        </many-to-one>
+        <many-to-one name="user" class="hibpck.User" fetch="select">
+            <column name="user_iduser" not-null="true" />
+        </many-to-one>
+        <property name="email" type="string">
+            <column name="email" />
+        </property>
+        <property name="password" type="string">
+            <column name="password" />
+        </property>
+        <property name="question" type="string">
+            <column name="question" />
+        </property>
+        <property name="answer" type="string">
+            <column name="answer" />
+        </property>
+        <set name="loginSessions" inverse="true">
+            <key>
+                <column name="user_login_iduser_login" not-null="true" />
+            </key>
+            <one-to-many class="hibpck.LoginSession" />
+        </set>
+    </class>
+</hibernate-mapping>

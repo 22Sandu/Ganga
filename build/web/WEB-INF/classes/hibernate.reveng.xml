@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd">
+<hibernate-reverse-engineering>
+  <schema-selection match-catalog="Ganga"/>
+  <table-filter match-name="system_status"/>
+  <table-filter match-name="container"/>
+  <table-filter match-name="user"/>
+  <table-filter match-name="container_type"/>
+  <table-filter match-name="session_activities"/>
+  <table-filter match-name="products"/>
+  <table-filter match-name="product_in_container"/>
+  <table-filter match-name="user_type"/>
+  <table-filter match-name="product_type"/>
+  <table-filter match-name="login_session"/>
+  <table-filter match-name="image"/>
+  <table-filter match-name="user_login"/>
+</hibernate-reverse-engineering>

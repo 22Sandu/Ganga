@@ -1,0 +1,12 @@
+
+root { 
+    display: block;
+}
+h1 {background-color: #438800;}
+.label {font-style:italic; }
+.errorLabel {font-style:italic; color:blueviolet; }
+.errorMessage {font-weight:bold; color:red; font-size: 10px;}
+.errorTextField{border: red 1px solid;}
+.checkboxErrorLabel {color:yellow; }
+.required {color:green;}
+.tdLabel {text-align:right; vertical-align:top; }

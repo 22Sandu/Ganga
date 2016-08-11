@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 17, 2013 4:56:37 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="hibpck.Image" table="image" catalog="ganga">
+        <id name="idimage" type="java.lang.Integer">
+            <column name="idimage" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="products" class="hibpck.Products" fetch="select">
+            <column name="products_idproducts" not-null="true" />
+        </many-to-one>
+        <property name="image" type="binary">
+            <column name="image" />
+        </property>
+    </class>
+</hibernate-mapping>

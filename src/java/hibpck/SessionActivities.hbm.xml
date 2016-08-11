@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 17, 2013 4:56:37 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="hibpck.SessionActivities" table="session_activities" catalog="ganga">
+        <id name="idsessionActivities" type="java.lang.Integer">
+            <column name="idsession_activities" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="loginSession" class="hibpck.LoginSession" fetch="select">
+            <column name="login_session_idlogin_session" not-null="true" />
+        </many-to-one>
+        <property name="activity" type="string">
+            <column name="activity" length="65535" />
+        </property>
+    </class>
+</hibernate-mapping>

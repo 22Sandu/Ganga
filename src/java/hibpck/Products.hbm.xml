@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 17, 2013 4:56:37 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="hibpck.Products" table="products" catalog="ganga">
+        <id name="idproducts" type="java.lang.Integer">
+            <column name="idproducts" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="user" class="hibpck.User" fetch="select">
+            <column name="user_iduser" not-null="true" />
+        </many-to-one>
+        <many-to-one name="productType" class="hibpck.ProductType" fetch="select">
+            <column name="product_type_idproduct_type" not-null="true" />
+        </many-to-one>
+        <property name="productName" type="string">
+            <column name="product_name" />
+        </property>
+        <property name="qty" type="java.lang.Double">
+            <column name="qty" precision="22" scale="0" />
+        </property>
+        <property name="unitPrice" type="java.lang.Double">
+            <column name="unit_price" precision="22" scale="0" />
+        </property>
+        <property name="registerDate" type="date">
+            <column name="register_date" length="10" />
+        </property>
+        <set name="productInContainers" inverse="true">
+            <key>
+                <column name="products_idproducts" not-null="true" />
+            </key>
+            <one-to-many class="hibpck.ProductInContainer" />
+        </set>
+        <set name="images" inverse="true">
+            <key>
+                <column name="products_idproducts" not-null="true" />
+            </key>
+            <one-to-many class="hibpck.Image" />
+        </set>
+    </class>
+</hibernate-mapping>
